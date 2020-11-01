@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, /*animateScroll as scroll*/ } from "react-scroll";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import {faWhatsapp, faInstagram, faFacebook} from "@fortawesome/free-brands-svg-icons" //PARA ICONOS FAB
 // // import {faBell} from "@fortawesome/free-solid-svg-icons" ESTO ES PARA ICONOS FAS

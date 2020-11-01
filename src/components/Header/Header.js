@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
@@ -28,15 +27,15 @@ const Header = (props) => {
             <ul className="icons">
                 <li>
                 
-                    <a href="https://www.facebook.com/Zapateria-Avenida-472304296169928" target="_blank"
+                    <a href="https://www.facebook.com/Zapateria-Avenida-472304296169928" target="_blank"  rel="noopener noreferrer"
                         className="fb"><FontAwesomeIcon icon={faFacebook} /></a>
                 </li>
                 <li>
-                    <a href="https://www.instagram.com/zapateriaavenida/" target="_blank"
+                    <a href="https://www.instagram.com/zapateriaavenida/" target="_blank"  rel="noopener noreferrer"
                         className="ig"><FontAwesomeIcon icon={faInstagram} /></a>
                 </li>
                 <li>
-                    <a href="https://web.whatsapp.com/send?phone=542216395806" target="_blank"
+                    <a href="https://web.whatsapp.com/send?phone=542216395806" target="_blank"  rel="noopener noreferrer"
                         className="wsp"><FontAwesomeIcon icon={faWhatsapp} /></a>
                 </li>
             </ul>

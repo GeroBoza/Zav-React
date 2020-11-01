@@ -11,7 +11,6 @@ import { Link, /*animateScroll as scroll*/ } from "react-scroll";
     const isActive = window.location.pathname.startsWith(link);
 
     const activeClass = isActive ? "active" : "";
-    console.log(link);
     return (
         <li>
             <Link 

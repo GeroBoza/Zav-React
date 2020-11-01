@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Header from "../Header/Header";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "./ProductCard";
 import { NavLink, useParams } from "react-router-dom";
 import { getProducts, getSubcategory } from "../../getDataFromServer";
 
@@ -11,25 +11,34 @@ const Products = () => {
     const [title, setTitle] = useState("");
 
     
-    async function fetchManProducts() {
-        const data = await getProducts(id);
-        setProducts(data);
-    }
-    async function fetchTitle() {
-        const data = await getSubcategory(id);
-        setTitle(data);
-    }
+    
 
     useEffect(() => {
+        const fetchManProducts = async () => {
+            const data = await getProducts(id);
+            setProducts(data);
+        }
+        const fetchTitle = async () => {
+            const data = await getSubcategory(id);
+            setTitle(data);
+        }
+
         fetchManProducts();
         fetchTitle();
-    }, []);
+    }, [id]);
 
     let prods;
     if (products === []) {
         prods = "Esperando..";
     } else {
         prods = products;
+    }
+
+    const handleClick = (prod) =>{
+        // console.log("Hice click");
+        setProducts([])
+        setTitle(prod.name)
+        // console.log(categories);
     }
 
     return (
@@ -61,7 +70,7 @@ const Products = () => {
                         <div className="row">
                             
                             { prods.map((prod, i) => {
-                                return <ProductCard key={i} cat={prod} url={"/products/"+prod.id} >
+                                return <ProductCard key={i} cat={prod} url={"/products/"+prod.id} handler={handleClick}>
                                     <h1>{prod.brand.name +" - "+ prod.article}</h1>
                                     <p>{prod.stock !== 0 ? "$ " + prod.price : "Sin Stock"}</p>
                                     

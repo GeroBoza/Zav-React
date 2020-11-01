@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../Products/ProductCard";
 import { 
      NavLink } from "react-router-dom";
 import { getCategories } from "../../getDataFromServer";
 
 const Woman = () => {
     const [categories, setCategories] = useState([]);
-    const [title, setTitle] = useState(["Catalogo Masculino"]);
+    const [title, setTitle] = useState(["Catálogo Masculino"]);
 
     
     async function fetchManCategories() {
         const data = await getCategories("hombre");
         setCategories(data);
-        setTitle("Catalogo Masculino")
-        console.log("entre");
+        setTitle("Catálogo Masculino")
+        // console.log("entre");
     }
 
     useEffect(() => {
@@ -29,10 +29,9 @@ const Woman = () => {
     }
 
     const handleClick = (cat) =>{
-        console.log("Hice click");
         setCategories([])
         setTitle(cat.name)
-        console.log(categories);
+        // console.log(categories);
     }
 
     

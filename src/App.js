@@ -5,11 +5,13 @@ import Footer from './components/Footer/Footer';
 import Woman from './components/Woman/Woman';
 import Man from './components/Man/Man';
 import Products from './components/Products/Products';
+import ProductDetail from './components/Products/ProductDetail';
 
 
 import {
     BrowserRouter as Router,
     Route,
+    Switch,
     // Switch,
     // Link,
     // NavLink
@@ -19,6 +21,8 @@ import {
 function App() {
   return (
       <Router>
+          <Switch>
+
           <Route path="/" exact>
             <Home />
           </Route>
@@ -36,6 +40,10 @@ function App() {
             <Route path="/hombre/:id"> 
                 <Products />
             </Route>
+            <Route path="/product/:id"> 
+                <ProductDetail />
+            </Route>
+          </Switch>
             
 
             

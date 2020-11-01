@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header/Header";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard from "../Products/ProductCard";
 import { NavLink } from "react-router-dom";
 
 import { getCategories } from "../../getDataFromServer";
 
 const Woman = () => {
     const [categories, setCategories] = useState([]);
-    const [title, setTitle] = useState(["Catalogo Femenino"]);
+    const [title, setTitle] = useState(["Catálogo Femenino"]);
 
     async function fetchWomanCategories() {
         const data = await getCategories("mujer");
@@ -26,7 +26,6 @@ const Woman = () => {
     }
 
     const handleClick = (cat) =>{
-        console.log("Hice click");
         setCategories([])
         setTitle(cat.name)
     }

@@ -40,7 +40,7 @@ function App() {
             <Route path="/hombre/:id"> 
                 <Products />
             </Route>
-            <Route path="/product/:id"> 
+            <Route path="/products/:id"> 
                 <ProductDetail />
             </Route>
           </Switch>

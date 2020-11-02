@@ -1,19 +1,26 @@
-export async function getCategories(param) {
-    const getResult = await fetch("http://localhost:3000/api/categories/"+param);
+export async function getCategories(id) {
+    const getResult = await fetch("http://localhost:3000/api/categories/"+id);
     const categoriesResult = await getResult.json();
 
     return categoriesResult;
 }
 
-export async function getProducts(param) {
-    const getResult = await fetch("http://localhost:3000/api/products/"+param);
+export async function getProducts(id) {
+    const getResult = await fetch("http://localhost:3000/api/products/"+id);
     const productsResult = await getResult.json();
 
     return productsResult;
 }
 
-export async function getSubcategory(param) {
-    const getResult = await fetch("http://localhost:3000/api/subcategories/"+param);
+export async function getProductDetail(id) {
+    const getResult = await fetch("http://localhost:3000/api/products/detail/"+id);
+    const productsResult = await getResult.json();
+
+    return productsResult;
+}
+
+export async function getSubcategory(id) {
+    const getResult = await fetch("http://localhost:3000/api/subcategories/"+id);
     const subcategoriesResult = await getResult.json();
 
     return subcategoriesResult;

@@ -36,7 +36,6 @@ const Products = () => {
         url = products.url
     }
 
-    console.log(mItems);
 
     const handleClick = (prod) => {
         // console.log("Hice click");

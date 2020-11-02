@@ -53,7 +53,7 @@ const Products = () => {
                         <span>Inicio</span>
                     </NavLink>
                 </li>
-                {url == "hombre" ? <li>
+                {url === "hombre" ? <li>
                     <NavLink to="/hombre" exact>
                         <span>Hombre</span>
                     </NavLink>

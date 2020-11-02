@@ -6,6 +6,7 @@ import Woman from './components/Woman/Woman';
 import Man from './components/Man/Man';
 import Products from './components/Products/Products';
 import ProductDetail from './components/Products/ProductDetail';
+import Subcategory from './components/Subcategory/Subcategory';
 
 
 import {
@@ -28,14 +29,16 @@ function App() {
           </Route>
         
             <Route path="/mujer" exact>
-                <Woman />
+                {/* <Woman /> */}
+                <Subcategory sex="mujer"title="Catálogo Femenino"/>
             </Route>
             <Route path="/mujer/:id"> 
                 <Products />
             </Route>
             
             <Route path="/hombre" exact>
-                <Man />
+                {/* <Man /> */}
+                <Subcategory sex="hombre" title="Catálogo Masculino"/>
             </Route>
             <Route path="/hombre/:id"> 
                 <Products />

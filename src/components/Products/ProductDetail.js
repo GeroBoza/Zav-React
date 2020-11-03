@@ -21,13 +21,25 @@ const ProductDetail = () => {
 
     let prod;
     let mItems
+    let url
     if (product === []) {
         prod = "Esperando..";
         mItems = ""
     } else {
         prod = product.data;
         mItems = product.menuItems
+        url = product.url
+        // let subId = product.data.subcategory.id
     }
+    let subId
+    if (prod === undefined){
+        subId = "Esperando.."
+    } else{
+        subId = prod.subcategoryId
+    }
+    let cls
+
+
 
     // const handleClick = (prod) => {
     //     // console.log("Hice click");
@@ -44,13 +56,28 @@ const ProductDetail = () => {
                         <span>Inicio</span>
                     </NavLink>
                 </li>
-                {mItems !== undefined ? mItems.map((item, i) => {
-                    return <li key={i}>
-                    <NavLink to="/mujer">
-                        <span>{item.name}</span>
+                {url === "hombre" ? <li>
+                    <NavLink to="/hombre" exact>
+                        <span>Hombre</span>
                     </NavLink>
-                </li>
-                }) : ""}
+                </li> : <li>
+                    <NavLink to="/mujer" exact>
+                        <span>Mujer</span>
+                    </NavLink>
+                </li>}
+                {mItems !== undefined
+                    ? mItems.map((item, i) => {
+                        subId === item.id ? cls = "active" : cls = ""
+                        
+                          return (
+                              <li key={i}>
+                                  <NavLink to={`/${url}/${item.id}`}  className={cls}>
+                                      <span>{item.name}</span>
+                                  </NavLink>
+                              </li>
+                          );
+                      })
+                    : ""}
                 
                 
             </Header>

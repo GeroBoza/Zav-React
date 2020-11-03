@@ -2,8 +2,6 @@ import React from 'react';
 
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
-import Woman from './components/Woman/Woman';
-import Man from './components/Man/Man';
 import Products from './components/Products/Products';
 import ProductDetail from './components/Products/ProductDetail';
 import Subcategory from './components/Subcategory/Subcategory';
@@ -28,6 +26,7 @@ function App() {
             <Home />
           </Route>
         
+            {/* RUTA CATEGORIAS DE MUJER */}
             <Route path="/mujer" exact>
                 {/* <Woman /> */}
                 <Subcategory sex="mujer"title="Catálogo Femenino"/>
@@ -35,7 +34,8 @@ function App() {
             <Route path="/mujer/:id"> 
                 <Products />
             </Route>
-            
+
+            {/* RUTA CATEGORIAS DE HOMBRES */}
             <Route path="/hombre" exact>
                 {/* <Man /> */}
                 <Subcategory sex="hombre" title="Catálogo Masculino"/>
@@ -43,6 +43,8 @@ function App() {
             <Route path="/hombre/:id"> 
                 <Products />
             </Route>
+
+            {/* RUTA PRODUCTOS */}
             <Route path="/products/:id"> 
                 <ProductDetail />
             </Route>

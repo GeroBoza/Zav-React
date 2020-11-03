@@ -7,8 +7,6 @@ import { getCategories } from "../../getDataFromServer";
 
 const Subcategory = (props) => {
     const [categories, setCategories] = useState([]);
-    // const [title, setTitle] = useState([props.title]);
-    const [sex, setSex] = useState(props.sex)
     
     useEffect(() => {
         // console.log("se ejecuta");

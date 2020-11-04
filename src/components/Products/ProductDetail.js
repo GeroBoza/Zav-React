@@ -1,7 +1,10 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect, Fragment } from "react";
 import Header from "../Header/Header";
 import { NavLink, useParams} from "react-router-dom";
 import { getProductDetail } from "../../getDataFromServer";
+import ProductDescription from "./ProductDescription";
+import {Carousel} from 'react-bootstrap'
+
 
 const ProductDetail = () => {
     const {id} = useParams();
@@ -22,6 +25,7 @@ const ProductDetail = () => {
     let prod;
     let mItems
     let url
+    let imgs
     if (product === []) {
         prod = "Esperando..";
         mItems = ""
@@ -36,8 +40,13 @@ const ProductDetail = () => {
         subId = "Esperando.."
     } else{
         subId = prod.subcategoryId
+        imgs = prod.images
+        // console.log(prod.images);
     }
     let cls
+
+    console.log(prod);
+
 
 
 
@@ -47,6 +56,12 @@ const ProductDetail = () => {
     //     setTitle(prod.name);
     //     // console.log(categories);
     // };
+
+    const mystyle = {
+        backgroundColor: "rgba(255, 255, 255, 0.425)",
+        borderRadius: "5px",
+        paddingBottom: "20px"
+      };
 
     return (
         <div id="main">
@@ -81,7 +96,45 @@ const ProductDetail = () => {
                 
                 
             </Header>
-            <h1>Hola</h1>
+            <section id="catalogo" className="two">
+            <div className="container">
+                <header>
+                    <h2>{prod !== undefined ? prod.subcategory.name : ""}</h2>
+                </header>
+
+
+
+                <div className="row"
+                    style={mystyle}>
+                    <div className="col-md-6 col-sm-12">
+                        <article className="item">
+                            <Carousel>
+                                {imgs !== undefined ? prod.images.map(img =>{
+                                    return (
+                                    <Carousel.Item key={img.id}>
+                                            <img 
+                                            src={`https://elasticbeanstalk-sa-east-1-680693481249.s3-sa-east-1.amazonaws.com/${img.name}`}
+                                                alt="Image"
+                                                className="img-fluid"
+                                                style={{maxWidth:"50%"}} />
+                                        
+                                    </Carousel.Item>)
+                                        }): ""} 
+
+                            </Carousel>
+                           
+                        </article>
+                    </div>
+
+                    <div className="col-md-6 col-sm-12">
+                        {prod !== undefined ? 
+                            <ProductDescription prod={prod} />
+                        : ""}
+                    </div>
+
+                </div>
+            </div>
+        </section>
         </div>
     );
 };

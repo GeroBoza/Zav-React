@@ -23,7 +23,7 @@ const ProductCard = (props) => {
     
 
     return (
-        <div className="col-4 col-12-mobile" style={{ margin: "auto" }}>
+        <div className="col-md-4 col-sm-12" style={{ margin: "auto" }}>
             <Link to={url} className="image fit hvr-float-shadow" onClick={()=>{handler(cat)}}>
             {/* <div style={{cursor:"pointer"}} className="image fit hvr-float-shadow" onClick={() =>{handler(cat.id)}}> */}
 

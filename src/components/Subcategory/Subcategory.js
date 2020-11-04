@@ -55,7 +55,7 @@ const Subcategory = (props) => {
             <section id="catalogo" className="two">
                 <div className="container">
                     <header>
-                        <h2>{props.title +" - "+ props.sex} </h2>
+                        <h2>{props.title} </h2>
                     </header>
 
                     <div className="row">
@@ -72,7 +72,7 @@ const Subcategory = (props) => {
                             } else {
                                 url=cat.id
                             }
-                            return <ProductCard key={i} cat={cat} url={`/${props.sex}/`+url} handler={handleClick}> <h3>{cat.name}</h3> </ProductCard>;
+                            return <ProductCard key={i} cat={cat} url={`/${props.sex}/`+url} handler={handleClick} > <h3>{cat.name}</h3> </ProductCard>;
                         })}
                     </div>
                 </div>

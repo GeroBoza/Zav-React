@@ -22,14 +22,18 @@ function App() {
       <Router>
           <Switch>
 
-          <Route path="/" exact>
-            <Home />
-          </Route>
+         
         
             {/* RUTA CATEGORIAS DE MUJER */}
             <Route path="/mujer" exact>
                 {/* <Woman /> */}
                 <Subcategory sex="mujer"title="Catálogo Femenino"/>
+            </Route>
+            <Route path="/mujer/otono-invierno"> 
+                <Subcategory sex="invierno"/>
+            </Route>
+            <Route path="/mujer/primavera-verano"> 
+                <Subcategory sex="verano"/>
             </Route>
             <Route path="/mujer/:id"> 
                 <Products />
@@ -47,6 +51,10 @@ function App() {
             {/* RUTA PRODUCTOS */}
             <Route path="/products/:id"> 
                 <ProductDetail />
+            </Route>
+
+            <Route path="/" exact>
+                <Home />
             </Route>
           </Switch>
             

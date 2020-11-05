@@ -29,6 +29,13 @@ const Subcategory = (props) => {
         setCategories([])
     }
 
+    let path
+    if(props.sex === "invierno" || props.sex ==="verano"){
+        path = "mujer"
+    } else {
+        path = props.sex
+    }
+
     
 
     return (
@@ -61,9 +68,9 @@ const Subcategory = (props) => {
                     <div className="row">
                         {categs.map((cat, i) => {
                             let url
-                            if (cat.name.includes("Invierno")){
+                            if (cat.name.includes("Otoño / Invierno")){
                                 url = "otono-invierno"
-                            } else if (cat.name.includes("Verano")){
+                            } else if (cat.name.includes("Primavera / Verano")){
                                 url = "primavera-verano"
                             } else if (cat.name === "Carteras") {
                                 url = "2"
@@ -72,7 +79,7 @@ const Subcategory = (props) => {
                             } else {
                                 url=cat.id
                             }
-                            return <ProductCard key={i} cat={cat} url={`/${props.sex}/`+url} handler={handleClick} > <h3>{cat.name}</h3> </ProductCard>;
+                            return <ProductCard key={i} cat={cat} url={`/${path}/`+url} handler={handleClick} > <h3>{cat.name}</h3> </ProductCard>;
                         })}
                     </div>
                 </div>

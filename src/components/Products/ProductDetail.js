@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment } from "react";
+import React, {useState, useEffect } from "react";
 import Header from "../Header/Header";
 import { NavLink, useParams} from "react-router-dom";
 import { getProductDetail } from "../../getDataFromServer";
@@ -44,8 +44,6 @@ const ProductDetail = () => {
         // console.log(prod.images);
     }
     let cls
-
-    console.log(prod);
 
 
 
@@ -114,7 +112,7 @@ const ProductDetail = () => {
                                     <Carousel.Item key={img.id}>
                                             <img 
                                             src={`https://elasticbeanstalk-sa-east-1-680693481249.s3-sa-east-1.amazonaws.com/${img.name}`}
-                                                alt="Image"
+                                                alt={img.name}
                                                 className="img-fluid"
                                                 style={{maxWidth:"50%"}} />
                                         

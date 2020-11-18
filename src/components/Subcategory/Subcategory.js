@@ -18,16 +18,12 @@ const Subcategory = (props) => {
     }, [props.sex]);
 
     
-    let categs;
-    if (categories === []) {
-        categs = "Esperando..";
-    } else {
-        categs = categories;
-    }
-
-    const handleClick = (cat) =>{
-        setCategories([])
-    }
+    // let categs;
+    // if (categories === []) {
+    //     categs = "Esperando..";
+    // } else {
+    //     categs = categories;
+    // }
 
     let path
     if(props.sex === "invierno" || props.sex ==="verano"){
@@ -66,7 +62,7 @@ const Subcategory = (props) => {
                     </header>
 
                     <div className="row">
-                        {categs.map((cat, i) => {
+                        {categories.map((cat, i) => {
                             let url
                             if (cat.name.includes("Otoño / Invierno")){
                                 url = "otono-invierno"
@@ -79,7 +75,7 @@ const Subcategory = (props) => {
                             } else {
                                 url=cat.id
                             }
-                            return <ProductCard key={i} cat={cat} url={`/${path}/`+url} handler={handleClick} > <h3>{cat.name}</h3> </ProductCard>;
+                            return <ProductCard key={i} cat={cat} url={`/${path}/`+url} > <h3>{cat.name}</h3> </ProductCard>;
                         })}
                     </div>
                 </div>

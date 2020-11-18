@@ -6,26 +6,22 @@ import {
     // Switch,
     Link,
     // NavLink
-  } from "react-router-dom";
+} from "react-router-dom";
 
 const ProductCard = (props) => {
-    const { cat, url, handler } = props;
+    const { cat, url } = props;
 
-
-
-    let img
-    if (cat.image != null){
-        img = "img/"+cat.image
+    let img;
+    if (cat.image != null) {
+        img = "img/" + cat.image;
     } else {
-        img =  cat.imageppal
+        img = cat.imageppal;
     }
-
-    
 
     return (
         <div className="col-md-4 col-sm-12" style={{ margin: "auto" }}>
-            <Link to={url} className="image fit hvr-float-shadow" onClick={()=>{handler(cat)}}>
-            {/* <div style={{cursor:"pointer"}} className="image fit hvr-float-shadow" onClick={() =>{handler(cat.id)}}> */}
+            <Link to={url} className="image fit hvr-float-shadow">
+                {/* <div style={{cursor:"pointer"}} className="image fit hvr-float-shadow" onClick={() =>{handler(cat.id)}}> */}
 
                 <article className="item">
                     <img
@@ -34,12 +30,10 @@ const ProductCard = (props) => {
                             img
                         }
                         alt={cat.name}
-                        />
-                    <header>
-                        {props.children}
-                    </header>
+                    />
+                    <header>{props.children}</header>
                 </article>
-            {/* </div> */}
+                {/* </div> */}
             </Link>
         </div>
     );
